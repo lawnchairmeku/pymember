@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "pymember"
+version = "0.1.0"
+description = ""
+authors = ["lawnchairmeku <mekumotoki@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+[tool.poetry.scripts]
+pydoit = "pymembercli.pymember:hello_world"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
