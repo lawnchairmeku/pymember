@@ -29,6 +29,7 @@ def add_task(name: str, tasks: list, desc: str = ''):
     t = TaskItem(id=newid, name=name, desc=desc,
                  status="todo", start_date=newdate)
     tasks.append(t)
+    # TODO colorize
     print("added", t)
 
 
@@ -40,9 +41,14 @@ def delete_task(taskid, tasks: list) -> list:
                 t.id -= 1
             newlist.append(t)
         else:
+            # TODO colorize
             print("deleted", t)
     return newlist
 
 
-def set_mark(taskid, mark, tasks: list) -> list:
-    pass
+def set_mark(taskid, mark, tasks: list):
+    for t in tasks:
+        if t.id == taskid:
+            t.status = mark
+    # TODO colorize
+    print("marked", t.name, "as", t.status)
