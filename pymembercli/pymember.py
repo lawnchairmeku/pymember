@@ -1,13 +1,9 @@
 from platformdirs import user_data_dir
-from dataclasses import dataclass
-from .TaskItem import TaskItem
-from datetime import datetime
+from .task_item import TaskItem
 from pathlib import Path
-from .util import colorize
 from . import cmds
 import argparse
 import json
-import os
 
 
 def main():

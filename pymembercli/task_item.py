@@ -4,6 +4,7 @@ from .util import colorize
 
 @dataclass
 class TaskItem:
+    """Represents a todo item."""
     id: int
     name: str
     desc: str
