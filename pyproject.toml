@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "pymember"
+name = "pymembercli"
 version = "0.1.0"
 description = ""
 authors = ["lawnchairmeku <mekumotoki@gmail.com>"]
@@ -9,7 +9,7 @@ readme = "README.md"
 python = "^3.12"
 
 [tool.poetry.scripts]
-pydoit = "pymembercli.pymember:hello_world"
+pymember = "pymembercli.pymember:main"
 
 [build-system]
 requires = ["poetry-core"]
