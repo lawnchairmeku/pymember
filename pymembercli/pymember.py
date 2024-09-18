@@ -43,11 +43,11 @@ def handle_args(args: argparse.Namespace, tasks: list) -> list:
         else:
             cmds.add_task(name=args.add, tasks=tasks)
     if args.mt != None:
-        cmds.set_mark(args.mt, 'todo', tasks)
+        cmds.set_mark(taskid=args.mt, mark='todo', tasks=tasks)
     if args.mi != None:
-        cmds.set_mark(args.mi, 'inprog', tasks)
+        cmds.set_mark(taskid=args.mi, mark='inprog', tasks=tasks)
     if args.md != None:
-        cmds.set_mark(args.md, 'done', tasks)
+        cmds.set_mark(taskid=args.md, mark='done', tasks=tasks)
     if args.delete != None:
         tasks = cmds.delete_task(args.delete, tasks)
     return tasks
