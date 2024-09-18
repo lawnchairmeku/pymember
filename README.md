@@ -4,13 +4,15 @@ A CLI tool for todo-list keeping and helpful reminders.
 
 ## Usage:
 You combine -a and -d into a single command, such as `pymember -a {task} -d {desc}`
-```-a [ADD], --add [ADD]
+```
+    -l LIST, --list LIST  List either 'a'll, 't'odo, 'i'nprog or 'd'one.
+    -a [ADD], --add [ADD]
                         Add an item to the list.
-  -d DESC, --desc DESC  Add a description, when adding an item.
-  -mt MT, --markt MT    Mark an item as 't'odo.
-  -mi MI, --marki MI    Mark an item as 'i'n progress.
-  -md MD, --markd MD    Mark an item as 'd'one
-  -del DELETE           Delete an item.```
+    -d DESC, --desc DESC  Add a description, when adding an item.
+    -mt MT, --markt MT    Mark an item as 't'odo.
+    -mi MI, --marki MI    Mark an item as 'i'n progress.
+    -md MD, --markd MD    Mark an item as 'd'one
+    -del DELETE           Delete an item.```
 ```
 
 ## To implement:

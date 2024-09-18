@@ -1,1 +1,23 @@
-[]
+[
+    {
+        "id": 0,
+        "name": "kill darth vader",
+        "desc": "he was your father, luke!",
+        "status": "done",
+        "start_date": "9/18/2024"
+    },
+    {
+        "id": 1,
+        "name": "drink water",
+        "desc": "",
+        "status": "inprog",
+        "start_date": "9/18/2024"
+    },
+    {
+        "id": 2,
+        "name": "kill god",
+        "desc": "i can do it prolly",
+        "status": "done",
+        "start_date": "9/18/2024"
+    }
+]

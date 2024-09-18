@@ -4,9 +4,14 @@ version = "0.1.0"
 description = ""
 authors = ["lawnchairmeku <mekumotoki@gmail.com>"]
 readme = "README.md"
+include = [
+    { path = "pymembercli/data", format = ["sdist", "wheel"] }
+]
+
 
 [tool.poetry.dependencies]
 python = "^3.12"
+platformdirs = "^4.3.6"
 
 [tool.poetry.scripts]
 pymember = "pymembercli.pymember:main"

@@ -1,6 +1,8 @@
+from platformdirs import user_data_dir
 from dataclasses import dataclass
-from datetime import datetime
 from .TaskItem import TaskItem
+from datetime import datetime
+from pathlib import Path
 from .util import colorize
 from . import cmds
 import argparse
@@ -11,20 +13,22 @@ import os
 def main():
     parser = make_parser()
     args = parser.parse_args()
-    tasks = load_file()
+    path = user_data_dir("pymembercli", "mekumotoki")
+    tasks = load_file(path)
     tasks = handle_args(args, tasks)
-
     # save before exit
-    with open('./pymembercli/data/tasks.json', 'w') as file:
+    with open(path+'/tasks.json', 'w') as file:
         json.dump(tasks, file, indent=4, default=vars)
 
 
-def load_file() -> list:
+def load_file(path) -> list:
     """Loads the tasks.json file and returns it as an object."""
     tasks = []
-    check_file = os.path.getsize('./pymembercli/data/tasks.json')
-    if check_file != 0:
-        with open('./pymembercli/data/tasks.json') as file:
+    Path(path).mkdir(parents=True, exist_ok=True)
+    try:
+        open(path+'/tasks.json', 'x')
+    except:
+        with open(path+'/tasks.json') as file:
             data = json.load(file)
             for d in data:
                 t = TaskItem(id=d['id'], name=d['name'], desc=d['desc'],
@@ -47,7 +51,7 @@ def handle_args(args: argparse.Namespace, tasks: list) -> list:
     if args.mi != None:
         cmds.set_mark(args.mi, 'inprog', tasks)
     if args.md != None:
-        cmds.set_mark(args.mt, 'done', tasks)
+        cmds.set_mark(args.md, 'done', tasks)
     if args.delete != None:
         tasks = cmds.delete_task(args.delete, tasks)
     return tasks
