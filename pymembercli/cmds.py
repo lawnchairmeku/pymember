@@ -54,7 +54,7 @@ def set_mark(taskid, mark, tasks: list):
         if t.id == taskid:
             t.status = mark
             # TODO colorize
-            print("marked", t.name, "as", t.status)
+            print("marked", t.name, "as", mark)
 
 
 # TODO update
