@@ -3,6 +3,9 @@ from datetime import datetime
 
 
 def list_tasks(listarg, tasks):
+    if len(tasks) == 0:
+        print("You have no todos!")
+        return
     tolist = ''
     match (listarg):
         case 'a' | 'all':
@@ -52,3 +55,5 @@ def set_mark(taskid, mark, tasks: list):
             t.status = mark
     # TODO colorize
     print("marked", t.name, "as", t.status)
+
+# TODO update

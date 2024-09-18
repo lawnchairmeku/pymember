@@ -62,8 +62,8 @@ def make_parser() -> argparse.ArgumentParser:
                         help="List either 'a'll, 't'odo, 'i'nprog or 'd'one.")
     parser.add_argument('-a', '--add', type=str, nargs='?',
                         help="Add an item to the list.")
-    parser.add_argument('-u', '--update', nargs='+', dest='upd',
-                        help="Update an item on the list.")
+    # parser.add_argument('-u', '--update', nargs='+', dest='upd',
+    # help="Update an item on the list.")
     parser.add_argument('-d', '--desc', type=str,
                         dest='desc', help="Add a description, when adding or updating an item.")
     parser.add_argument('-mt', '--markt', type=int, dest='mt',
