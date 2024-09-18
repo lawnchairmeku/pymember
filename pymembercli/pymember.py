@@ -14,11 +14,13 @@ def main():
     tasks = load_file()
     tasks = handle_args(args, tasks)
 
+    # save before exit
     with open('./pymembercli/data/tasks.json', 'w') as file:
         json.dump(tasks, file, indent=4, default=vars)
 
 
-def load_file():
+def load_file() -> list:
+    """Loads the tasks.json file and returns it as an object."""
     tasks = []
     check_file = os.path.getsize('./pymembercli/data/tasks.json')
     if check_file != 0:
@@ -31,7 +33,8 @@ def load_file():
     return tasks
 
 
-def handle_args(args, tasks):
+def handle_args(args: argparse.Namespace, tasks: list) -> list:
+    """Handle all the arguments."""
     if args.list != None:
         cmds.list_tasks(args.list, tasks)
     if args.add != None:
@@ -51,6 +54,7 @@ def handle_args(args, tasks):
 
 
 def make_parser() -> argparse.ArgumentParser:
+    """Setup the CLI."""
     parser = argparse.ArgumentParser(
         description="A tool for todo-list keeping and helpful reminders.",
         prog="pymember")
