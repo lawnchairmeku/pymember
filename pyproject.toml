@@ -4,10 +4,6 @@ version = "0.2.0"
 description = ""
 authors = ["lawnchairmeku <mekumotoki@gmail.com>"]
 readme = "README.md"
-include = [
-    { path = "pymembercli/data", format = ["sdist", "wheel"] }
-]
-
 
 [tool.poetry.dependencies]
 python = "^3.12"
