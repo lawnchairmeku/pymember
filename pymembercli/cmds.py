@@ -1,4 +1,4 @@
-from .TaskItem import TaskItem
+from .task_item import TaskItem
 from datetime import datetime
 
 
