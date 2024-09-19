@@ -8,14 +8,14 @@ def list_tasks(listarg, tasks):
         return
     tolist = ''
     match (listarg):
-        case 'a' | 'all':
+        case 'all':
             for t in tasks:
                 print(t)
-        case 't' | 'todo':
+        case 'todo':
             tolist = 'todo'
-        case 'i' | 'inprog':
-            tolist = 'inprog'
-        case 'd' | 'done':
+        case 'doing':
+            tolist = 'doing'
+        case 'done':
             tolist = 'done'
     for t in tasks:
         if t.status == tolist:
