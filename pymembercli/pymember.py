@@ -9,7 +9,7 @@ import json
 def main():
     path = user_data_dir("pymembercli", "mekumotoki")
     tasks = load_file(path)
-    tasks = make_parser(tasks)
+    tasks = do_everything(tasks)
     # save before exit
     with open(path+'/tasks.json', 'w') as file:
         json.dump(tasks, file, indent=4, default=vars)
@@ -36,8 +36,8 @@ def load_file(path) -> list:
 
 # TODO add shell
 
-def make_parser(tasks: list) -> argparse.ArgumentParser:
-    """Setup the CLI."""
+def do_everything(tasks: list) -> list:
+    """Do Everything"""
     parser = argparse.ArgumentParser(
         description="A tool for todo-list keeping and helpful reminders.",
         prog="pymember")
@@ -57,12 +57,12 @@ def make_parser(tasks: list) -> argparse.ArgumentParser:
 
     set_state = subparsers.add_parser(
         'set', help='set the status of a task')
-    set_state.add_argument(  # noqa F841
+    set_state.add_argument(
         'taskid', type=int, help='taskid to set')
-    set_state.add_argument(  # noqa F481
+    set_state.add_argument(
         'status', type=str, choices=['todo', 'doing', 'done'])
 
-    del_task = subparsers.add_parser('del', help='delete a task')  # noqa F481
+    del_task = subparsers.add_parser('del', help='delete a task')
     del_task.add_argument('taskid', type=int, help='taskid to delete')
 
     args = parser.parse_args()
