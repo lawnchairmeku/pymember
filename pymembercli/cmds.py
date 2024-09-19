@@ -1,6 +1,9 @@
 from .task_item import TaskItem
 from datetime import datetime
 
+# TODO it might be efficient to write directly to stdout and flush things
+# instead of using print()
+
 
 def list_tasks(listarg, tasks):
     if len(tasks) == 0:
