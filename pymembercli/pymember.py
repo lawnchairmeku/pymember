@@ -27,6 +27,8 @@ def load_file(path) -> list:
         with open(path+'/tasks.json') as file:
             data = json.load(file)
             for d in data:
+                # TODO cant i just pass the json object around?
+                # do i really need objects here?
                 t = TaskItem(id=d['id'], name=d['name'], desc=d['desc'],
                              status=d['status'], start_date=d['start_date'])
                 tasks.append(t)
