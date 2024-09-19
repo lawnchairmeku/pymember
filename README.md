@@ -7,7 +7,7 @@ A CLI tool for todo-list keeping and helpful reminders.
 or, download from source and run `pip install .`
 
 ## Usage:
-`pymember ls [all/todo/doing/done (optional, defaults to all)]`
+`pymember ls [all/todo/doing/done] (optional, defaults to all)`
 
 `pymember add [taskname] -d [desc]`
 
