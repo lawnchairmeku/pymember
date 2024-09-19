@@ -35,7 +35,7 @@ def load_file(path) -> list:
 
 # TODO add shell
 def make_parser() -> argparse.Namespace:
-    """Do Everything"""
+    """Setup the CLI"""
     parser = argparse.ArgumentParser(
         description="A tool for todo-list keeping and helpful reminders.",
         prog="pymember")
