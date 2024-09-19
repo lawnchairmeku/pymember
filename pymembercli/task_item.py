@@ -19,7 +19,7 @@ class TaskItem:
         if self.status == 'todo':
             newname = colorize(newname, 'red')
             newstatus = colorize(newstatus, 'red')
-        elif self.status == 'inprog':
+        elif self.status == 'doing':
             newname = colorize(newname, 'yellow')
             newstatus = colorize(newstatus, 'yellow')
         elif self.status == 'done':
