@@ -48,7 +48,7 @@ def do_everything(tasks: list) -> list:
 
     ls = subparsers.add_parser(
         'ls', help='list tasks')
-    ls.add_argument('lstype', type=str, choices=[  # noqa F481
+    ls.add_argument('lstype', type=str, choices=[
         'all', 'todo', 'doing', 'done'], default='all', nargs='?')
 
     add = subparsers.add_parser('add', help='add a task to the list')
