@@ -1,4 +1,4 @@
-from . import pymembercli
+from . import pymember
 
 if __name__ == "__main__":
-    pymembercli.main()
+    pymember.main()
