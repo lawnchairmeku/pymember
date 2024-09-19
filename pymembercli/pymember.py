@@ -9,7 +9,8 @@ import json
 def main():
     path = user_data_dir("pymembercli", "mekumotoki")
     tasks = load_file(path)
-    tasks = do_everything(tasks)
+    args = make_parser()
+    tasks = handle_args(tasks, args)
     # save before exit
     with open(path+'/tasks.json', 'w') as file:
         json.dump(tasks, file, indent=4, default=vars)
@@ -19,15 +20,13 @@ def load_file(path) -> list:
     """Loads the tasks.json file and returns it as an object."""
     tasks = []
     Path(path).mkdir(parents=True, exist_ok=True)
-    # TODO pull out into 'atomic function'?
+    # check if file already exists
     try:
         open(path+'/tasks.json', 'x')
     except FileExistsError:
         with open(path+'/tasks.json') as file:
             data = json.load(file)
             for d in data:
-                # TODO cant i just pass the json object around?
-                # do i really need objects here?
                 t = TaskItem(id=d['id'], name=d['name'], desc=d['desc'],
                              status=d['status'], start_date=d['start_date'])
                 tasks.append(t)
@@ -35,8 +34,7 @@ def load_file(path) -> list:
 
 
 # TODO add shell
-
-def do_everything(tasks: list) -> list:
+def make_parser() -> argparse.Namespace:
     """Do Everything"""
     parser = argparse.ArgumentParser(
         description="A tool for todo-list keeping and helpful reminders.",
@@ -65,8 +63,10 @@ def do_everything(tasks: list) -> list:
     del_task = subparsers.add_parser('del', help='delete a task')
     del_task.add_argument('taskid', type=int, help='taskid to delete')
 
-    args = parser.parse_args()
+    return parser.parse_args()
 
+
+def handle_args(tasks, args) -> list:
     if args.command == 'ls':
         cmds.list_tasks(args.lstype, tasks)
 
