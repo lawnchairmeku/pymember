@@ -18,6 +18,10 @@ or, download from source and run `pip install .`
 `pymember del -set [all/todo/doing/done]`
 
 ## To implement:
-Updating tasks.
+- Updating tasks.
+
+- Task folders.
+
+- A shell TUI.
 
 https://roadmap.sh/projects/task-tracker
