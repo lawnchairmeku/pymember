@@ -15,7 +15,7 @@ or, download from source and run `pip install .`
 
 `pymember del -id [taskid]`
 
-`pymember del -set [all/todo/doing/done]'
+`pymember del -set [all/todo/doing/done]`
 
 ## To implement:
 Updating tasks.
