@@ -41,7 +41,7 @@ def make_parser() -> argparse.Namespace:
     )
     # TODO implement this
     parser.add_argument(
-        '--debug', action='store_true', help='print debug info'
+        '-dbg', '--debug', action='store_true', help='print debug info'
     )
 
     subparsers = parser.add_subparsers(dest='command')
