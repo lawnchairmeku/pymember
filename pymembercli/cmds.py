@@ -2,9 +2,6 @@ from .task_item import TaskItem
 from datetime import datetime
 from .util import colorize
 
-# TODO it might be efficient to write directly to stdout and flush things
-# instead of using print()
-
 
 def list_tasks(listarg, tasks):
     if len(tasks) == 0:
@@ -76,8 +73,7 @@ def set_mark(taskid, mark, tasks: list):
     for t in tasks:
         if t.id == taskid:
             t.status = mark
-            # TODO colorize
             print("marked", t.name, "as", colorize(mark, color))
 
 
-# TODO update
+# TODO let you update tasks

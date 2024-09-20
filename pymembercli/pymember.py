@@ -66,6 +66,8 @@ def make_parser() -> argparse.Namespace:
                           choices=['all', 'todo', 'doing', 'done'],
                           help='taskset to delete')
 
+    subparsers.add_parser('clear', help='clear all tasks')
+
     return parser.parse_args()
 
 
@@ -88,5 +90,8 @@ def handle_args(tasks, args) -> list:
             tasks = cmds.delete_task_by_id(args.taskid, tasks=tasks)
         if args.taskset is not None:
             tasks = cmds.delete_task_by_set(args.taskset, tasks=tasks)
+
+    elif args.command == 'clear':
+        tasks = cmds.delete_task_by_set('all', tasks=tasks)
 
     return tasks
