@@ -13,6 +13,9 @@ pympmyansi = "^0.1.0"
 [tool.poetry.scripts]
 pymember = "pymembercli.pymember:main"
 
+[tool.poetry.group.test.dependencies]
+pytest = "^8.3.3"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
