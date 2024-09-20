@@ -52,11 +52,12 @@ def delete_task_by_id(taskid, tasks: list) -> list:
 def delete_task_by_set(taskset, tasks: list) -> list:
     newlist = []
     if taskset == 'all':
-        return newlist
-    for t in tasks:
-        if t.status != taskset:
-            newlist.append(t)
-    print(colorize('deleted', 'underline'), 'all in', taskset)
+        pass
+    else:
+        for t in tasks:
+            if t.status != taskset:
+                newlist.append(t)
+    print(colorize(colorize('deleted', 'underline'), 'red'), 'all in', taskset)
     return newlist
 
 
