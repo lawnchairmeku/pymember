@@ -14,17 +14,17 @@ class TaskItem:
     def __repr__(self):
         newname = self.name
         newstatus = self.status
-        newdesc = pymp(self.desc, 'dark_gray')
-        newdate = pymp(self.start_date, 'purple')
+        newdesc = pymp(self.desc, 'fg_dark_gray')
+        newdate = pymp(self.start_date, 'fg_purple')
         if self.status == 'todo':
-            newname = pymp(newname, 'red')
-            newstatus = pymp(newstatus, 'red')
+            newname = pymp(newname, 'fg_red')
+            newstatus = pymp(newstatus, 'fg_red')
         elif self.status == 'doing':
-            newname = pymp(newname, 'yellow')
-            newstatus = pymp(newstatus, 'yellow')
+            newname = pymp(newname, 'fg_yellow')
+            newstatus = pymp(newstatus, 'fg_yellow')
         elif self.status == 'done':
-            newname = pymp(newname, 'green')
-            newstatus = pymp(newstatus, 'green')
+            newname = pymp(newname, 'fg_green')
+            newstatus = pymp(newstatus, 'fg_green')
         reprstr = str(self.id) + ". " + newname + " |  " + newdesc + \
             "\n" + newstatus + "  added: " + newdate
         return reprstr

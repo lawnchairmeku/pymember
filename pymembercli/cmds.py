@@ -57,7 +57,7 @@ def delete_task_by_set(taskset, tasks: list) -> list:
         for t in tasks:
             if t.status != taskset:
                 newlist.append(t)
-    print(pymp(pymp('deleted', 'underline'), 'red'), 'all in', taskset)
+    print(pymp(pymp('deleted', 'underline'), 'fg_red'), 'all in', taskset)
     return newlist
 
 
@@ -66,11 +66,11 @@ def set_mark(taskid, mark, tasks: list):
     color = ''
     match mark:
         case 'todo':
-            color = 'red'
+            color = 'fg_red'
         case 'doing':
-            color = 'yellow'
+            color = 'fg_yellow'
         case 'done':
-            color = 'green'
+            color = 'fg_green'
     for t in tasks:
         if t.id == taskid:
             t.status = mark
