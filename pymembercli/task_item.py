@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from .util import colorize
+from pympmyansi import pymp
 
 
 @dataclass
@@ -14,17 +14,17 @@ class TaskItem:
     def __repr__(self):
         newname = self.name
         newstatus = self.status
-        newdesc = colorize(self.desc, 'dark_gray')
-        newdate = colorize(self.start_date, 'purple')
+        newdesc = pymp(self.desc, 'dark_gray')
+        newdate = pymp(self.start_date, 'purple')
         if self.status == 'todo':
-            newname = colorize(newname, 'red')
-            newstatus = colorize(newstatus, 'red')
+            newname = pymp(newname, 'red')
+            newstatus = pymp(newstatus, 'red')
         elif self.status == 'doing':
-            newname = colorize(newname, 'yellow')
-            newstatus = colorize(newstatus, 'yellow')
+            newname = pymp(newname, 'yellow')
+            newstatus = pymp(newstatus, 'yellow')
         elif self.status == 'done':
-            newname = colorize(newname, 'green')
-            newstatus = colorize(newstatus, 'green')
+            newname = pymp(newname, 'green')
+            newstatus = pymp(newstatus, 'green')
         reprstr = str(self.id) + ". " + newname + " |  " + newdesc + \
             "\n" + newstatus + "  added: " + newdate
         return reprstr

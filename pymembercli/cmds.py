@@ -1,6 +1,6 @@
 from .task_item import TaskItem
 from datetime import datetime
-from .util import colorize
+from pympmyansi import pymp
 
 
 def list_tasks(listarg, tasks):
@@ -45,7 +45,7 @@ def delete_task_by_id(taskid, tasks: list) -> list:
                 t.id -= 1
             newlist.append(t)
         else:
-            print(colorize("deleted", 'underline'), t)
+            print(pymp("deleted", 'underline'), t)
     return newlist
 
 
@@ -57,7 +57,7 @@ def delete_task_by_set(taskset, tasks: list) -> list:
         for t in tasks:
             if t.status != taskset:
                 newlist.append(t)
-    print(colorize(colorize('deleted', 'underline'), 'red'), 'all in', taskset)
+    print(pymp(pymp('deleted', 'underline'), 'red'), 'all in', taskset)
     return newlist
 
 
@@ -74,7 +74,7 @@ def set_mark(taskid, mark, tasks: list):
     for t in tasks:
         if t.id == taskid:
             t.status = mark
-            print("marked", t.name, "as", colorize(mark, color))
+            print("marked", t.name, "as", pymp(mark, color))
 
 
 # TODO let you update tasks
