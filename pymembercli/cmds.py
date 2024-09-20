@@ -39,8 +39,8 @@ def add_task(name: str, tasks: list, desc: str = ''):
     print("added", t)
 
 
-# TODO allow you to delete all tasks or tasks of a specific status
-def delete_task(taskid, tasks: list) -> list:
+# TODO allow you to delete multiple tasks at once
+def delete_task_by_id(taskid, tasks: list) -> list:
     newlist = []
     for t in tasks:
         if t.id != taskid:
@@ -53,6 +53,19 @@ def delete_task(taskid, tasks: list) -> list:
     return newlist
 
 
+def delete_task_by_set(taskset, tasks: list) -> list:
+    newlist = []
+    if taskset == 'all':
+        return newlist
+    for t in tasks:
+        if t.status != taskset:
+            newlist.append(t)
+    # TODO colorize. bold
+    print('deleted all in', taskset)
+    return newlist
+
+
+# TODO allow you to set multiple tasks at once
 def set_mark(taskid, mark, tasks: list):
     for t in tasks:
         if t.id == taskid:
