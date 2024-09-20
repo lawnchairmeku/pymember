@@ -37,34 +37,54 @@ def make_parser() -> argparse.Namespace:
     """Setup the CLI"""
     parser = argparse.ArgumentParser(
         description="A tool for todo-list keeping and helpful reminders.",
-        prog="pymember")
-    parser.add_argument('--debug', action='store_true',
-                        help='print debug info')
+        prog="pymember"
+    )
+    # TODO implement this
+    parser.add_argument(
+        '--debug', action='store_true', help='print debug info'
+    )
 
     subparsers = parser.add_subparsers(dest='command')
 
     ls = subparsers.add_parser(
-        'ls', help='list tasks')
-    ls.add_argument('lstype', type=str, choices=[
-        'all', 'todo', 'doing', 'done'], default='all', nargs='?')
+        'ls', help='list tasks'
+    )
+    ls.add_argument(
+        'lstype', type=str,
+        choices=['all', 'todo', 'doing', 'done'],
+        default='all', nargs='?'
+    )
 
-    add = subparsers.add_parser('add', help='add a task to the list')
-    add.add_argument('taskname', type=str, help='name of task')
-    add.add_argument('-d', '--desc', type=str, help='set a description')
+    add = subparsers.add_parser(
+        'add', help='add a task to the list'
+    )
+    add.add_argument(
+        'taskname', type=str, help='name of task'
+    )
+    add.add_argument(
+        '-d', '--desc', type=str, help='set a description'
+    )
 
     set_state = subparsers.add_parser(
-        'set', help='set the status of a task')
+        'set', help='set the status of a task'
+    )
     set_state.add_argument(
-        'taskid', type=int, help='taskid to set')
+        'taskid', type=int, help='taskid to set'
+    )
     set_state.add_argument(
-        'status', type=str, choices=['todo', 'doing', 'done'])
+        'status', type=str, choices=['todo', 'doing', 'done']
+    )
 
-    del_task = subparsers.add_parser('del', help='delete a task')
-    del_task.add_argument('-id', dest='taskid', type=int,
-                          help='taskid to delete')
-    del_task.add_argument('-set', dest='taskset', type=str,
-                          choices=['all', 'todo', 'doing', 'done'],
-                          help='taskset to delete')
+    del_task = subparsers.add_parser(
+        'del', help='delete a task'
+    )
+    del_task.add_argument(
+        '-id', dest='taskid', type=int, help='taskid to delete'
+    )
+    del_task.add_argument(
+        '-set', dest='taskset', type=str,
+        choices=['all', 'todo', 'doing', 'done'], help='taskset to delete'
+    )
 
     subparsers.add_parser('clear', help='clear all tasks')
 
