@@ -39,6 +39,7 @@ def add_task(name: str, tasks: list, desc: str = ''):
     print("added", t)
 
 
+# TODO allow you to delete all tasks or tasks of a specific status
 def delete_task(taskid, tasks: list) -> list:
     newlist = []
     for t in tasks:
