@@ -1,5 +1,6 @@
 from .task_item import TaskItem
 from datetime import datetime
+from .util import colorize
 
 # TODO it might be efficient to write directly to stdout and flush things
 # instead of using print()
@@ -35,7 +36,6 @@ def add_task(name: str, tasks: list, desc: str = ''):
     t = TaskItem(id=newid, name=name, desc=desc,
                  status="todo", start_date=newdate)
     tasks.append(t)
-    # TODO colorize
     print("added", t)
 
 
@@ -48,8 +48,7 @@ def delete_task_by_id(taskid, tasks: list) -> list:
                 t.id -= 1
             newlist.append(t)
         else:
-            # TODO colorize
-            print("deleted", t)
+            print(colorize("deleted", 'underline'), t)
     return newlist
 
 
@@ -60,18 +59,25 @@ def delete_task_by_set(taskset, tasks: list) -> list:
     for t in tasks:
         if t.status != taskset:
             newlist.append(t)
-    # TODO colorize. bold
-    print('deleted all in', taskset)
+    print(colorize('deleted', 'underline'), 'all in', taskset)
     return newlist
 
 
 # TODO allow you to set multiple tasks at once
 def set_mark(taskid, mark, tasks: list):
+    color = ''
+    match mark:
+        case 'todo':
+            color = 'red'
+        case 'doing':
+            color = 'yellow'
+        case 'done':
+            color = 'green'
     for t in tasks:
         if t.id == taskid:
             t.status = mark
             # TODO colorize
-            print("marked", t.name, "as", mark)
+            print("marked", t.name, "as", colorize(mark, color))
 
 
 # TODO update

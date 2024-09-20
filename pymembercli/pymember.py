@@ -33,7 +33,6 @@ def load_file(path) -> list:
     return tasks
 
 
-# TODO add shell
 def make_parser() -> argparse.Namespace:
     """Setup the CLI"""
     parser = argparse.ArgumentParser(
