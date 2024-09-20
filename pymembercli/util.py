@@ -17,7 +17,6 @@ def colorize(input: str, code: str) -> str:
         return codes[code] + input + codes['end']
 
 
-# TODO use an enum
 codes = {
     'black':        "\033[0;30m",
     'red':          "\033[0;31m",
