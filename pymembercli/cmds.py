@@ -73,7 +73,7 @@ def set_mark(taskid, mark, tasks: list):
     for t in tasks:
         if t.id == taskid:
             t.status = mark
-            print("marked", t.name, "as", pymp(mark, color))
+            print(f"marked {t.name} as", pymp(mark, color))
 
 
 # TODO let you update tasks
