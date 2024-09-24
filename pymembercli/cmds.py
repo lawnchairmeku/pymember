@@ -36,13 +36,14 @@ def add_task(name: str, tasks: list, desc: str = ''):
     print("added", t)
 
 
-# TODO allow you to delete multiple tasks at once
-def delete_task_by_id(taskid, tasks: list) -> list:
+def delete_task_by_id(taskids, tasks: list) -> list:
     newlist = []
+    newid = 0
     for t in tasks:
-        if t.id != taskid and t.id > taskid:
-            t.id -= 1
+        if t.id not in taskids:
+            t.id = newid
             newlist.append(t)
+            newid += 1
         else:
             print(pymp("deleted", 'underline'), t)
     return newlist

@@ -59,8 +59,8 @@ def make_parser() -> argparse.Namespace:
                            'todo', 'doing', 'done'])
 
     del_task = subparsers.add_parser('del', help='delete a task')
-    del_task.add_argument('-id', dest='taskid', type=int,
-                          help='taskid to delete')
+    del_task.add_argument('-id', dest='taskids', type=int, nargs="+",
+                          help='taskid(s) to delete')
     del_task.add_argument('-grp', dest='taskgrp', type=str,
                           choices=['all', 'todo', 'doing', 'done'],
                           help='taskgrp to delete')
@@ -85,8 +85,8 @@ def handle_args(tasks, args) -> list:
                       mark=args.status, tasks=tasks)
 
     elif args.command == 'del':
-        if args.taskid is not None:
-            tasks = cmds.delete_task_by_id(args.taskid, tasks=tasks)
+        if args.taskids is not None:
+            tasks = cmds.delete_task_by_id(args.taskids, tasks=tasks)
         if args.taskgrp is not None:
             tasks = cmds.delete_task_by_grp(args.taskgrp, tasks=tasks)
 
