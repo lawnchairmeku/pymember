@@ -7,20 +7,17 @@ def list_tasks(listarg, tasks):
     if len(tasks) == 0:
         print("You have no todos!")
         return
-    tolist = ''
-    match (listarg):
-        case 'all':
-            for t in tasks:
-                print(t)
-        case 'todo':
-            tolist = 'todo'
-        case 'doing':
-            tolist = 'doing'
-        case 'done':
-            tolist = 'done'
-    for t in tasks:
-        if t.status == tolist:
+    if listarg == 'all':
+        for t in tasks:
             print(t)
+    else:
+        match = False
+        for t in tasks:
+            if t.status == listarg:
+                print(t)
+                match = True
+        if not match:
+            print(f'nothing in {listarg}!')
 
 
 def add_task(name: str, tasks: list, desc: str = ''):
