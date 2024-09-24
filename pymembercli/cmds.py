@@ -47,7 +47,7 @@ def del_task_by_id(taskids, tasks: list) -> list:
     return newlist
 
 
-def del_task_by_grp(taskset, tasks: list) -> list:
+def del_task_by_grp(taskset: str, tasks: list) -> list:
     newlist = []
     if taskset == 'all':
         pass
