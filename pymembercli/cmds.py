@@ -59,8 +59,7 @@ def delete_task_by_grp(taskset, tasks: list) -> list:
     return newlist
 
 
-# TODO allow you to set multiple tasks at once
-def set_mark(taskid, mark, tasks: list):
+def set_mark(taskids, mark, tasks: list):
     color = ''
     match mark:
         case 'todo':
@@ -70,7 +69,7 @@ def set_mark(taskid, mark, tasks: list):
         case 'done':
             color = 'fg_green'
     for t in tasks:
-        if t.id == taskid:
+        if t.id in taskids:
             t.status = mark
             print(f"marked {t.name} as", pymp(mark, color))
 

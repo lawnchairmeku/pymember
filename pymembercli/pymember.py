@@ -55,7 +55,8 @@ def make_parser() -> argparse.Namespace:
     add.add_argument('-d', '--desc', type=str, help='set a description')
 
     set_state = subparsers.add_parser('set', help='set the status of a task')
-    set_state.add_argument('taskid', type=int, help='taskid to set')
+    set_state.add_argument('taskids', type=int,
+                           nargs="+", help='taskid(s) to set')
     set_state.add_argument('status', type=str, choices=[
                            'todo', 'doing', 'done'])
 
@@ -80,7 +81,7 @@ def handle_args(tasks, args) -> list:
             cmds.add_task(name=args.taskname, tasks=tasks)
 
     elif args.command == 'set':
-        cmds.set_mark(taskid=args.taskid,
+        cmds.set_mark(taskids=args.taskids,
                       mark=args.status, tasks=tasks)
 
     elif args.command == 'del':
