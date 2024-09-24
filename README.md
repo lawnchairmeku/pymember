@@ -9,13 +9,13 @@ or, download from source and run `pip install .`
 ## Usage:
 `pymember ls [all/todo/doing/done] (optional, defaults to all)`
 
-`pymember add [taskname] -d [desc]`
+`pymember new [taskname] -d [desc]`
 
 `pymember set [taskid] [todo/doing/done]`
 
 `pymember del -id [taskid]`
 
-`pymember del -set [all/todo/doing/done]`
+`pymember del -grp [all/todo/doing/done]`
 
 ## To implement:
 - Updating tasks.
