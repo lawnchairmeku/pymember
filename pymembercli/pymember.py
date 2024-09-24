@@ -74,7 +74,7 @@ def handle_args(tasks, args) -> list:
     if args.command == 'ls':
         cmds.list_tasks(args.lstype, tasks)
 
-    elif args.command == 'add':
+    elif args.command == 'add' or args.command == 'new':
         if args.desc is not None:
             cmds.add_task(name=args.taskname, desc=args.desc, tasks=tasks)
         else:
