@@ -3,7 +3,7 @@ from datetime import datetime
 from pympmyansi import pymp
 
 
-def list_tasks(listarg, tasks):
+def list_tasks(listarg: str, tasks: list[TaskItem]) -> None:
     if len(tasks) == 0:
         print("You have no todos!")
         return
@@ -21,7 +21,7 @@ def list_tasks(listarg, tasks):
             print(f'nothing in {listarg}!')
 
 
-def add_task(name: str, tasks: list, desc: str = ''):
+def add_task(name: str, tasks: list, desc: str = '') -> None:
     date = datetime.now()
     newdate = str(date.month) + "/" + str(date.day) + "/" + str(date.year)
     if len(tasks) == 0:
@@ -34,7 +34,7 @@ def add_task(name: str, tasks: list, desc: str = ''):
     print("added", t)
 
 
-def del_task_by_id(taskids, tasks: list) -> list:
+def del_task_by_id(taskids: list[int], tasks: list[TaskItem]) -> list:
     newlist = []
     newid = 0
     for t in tasks:
@@ -47,7 +47,7 @@ def del_task_by_id(taskids, tasks: list) -> list:
     return newlist
 
 
-def del_task_by_grp(taskset: str, tasks: list) -> list:
+def del_task_by_grp(taskset: str, tasks: list[TaskItem]) -> list:
     newlist = []
     if taskset == 'all':
         pass
@@ -59,7 +59,7 @@ def del_task_by_grp(taskset: str, tasks: list) -> list:
     return newlist
 
 
-def set_task(taskids, group, tasks: list):
+def set_task(taskids: list[int], group: str, tasks: list[TaskItem]) -> None:
     color = ''
     match group:
         case 'todo':
