@@ -66,13 +66,13 @@ testing = ["pytest", "pytest-benchmark"]
 
 [[package]]
 name = "pympmyansi"
-version = "0.1.0"
+version = "0.2.0"
 description = ""
 optional = false
 python-versions = "<4.0,>=3.12"
 files = [
-    {file = "pympmyansi-0.1.0-py3-none-any.whl", hash = "sha256:7189f793e6be903fcaa94fc793c7fb450a62a980660991d89c3e118d441f6761"},
-    {file = "pympmyansi-0.1.0.tar.gz", hash = "sha256:e9b242d0dbe270b8ba387925141f9600a3112de566612d59afc8c35b28e9559a"},
+    {file = "pympmyansi-0.2.0-py3-none-any.whl", hash = "sha256:146b8276991233c525d779fb305e1c02b75760303719bdeb7e2aa957f5a5dbb1"},
+    {file = "pympmyansi-0.2.0.tar.gz", hash = "sha256:0fa5c9d7adab49233417f0aa19ea7131bbf5458075f7c197569ad5381bb58952"},
 ]
 
 [[package]]
@@ -98,4 +98,4 @@ dev = ["argcomplete", "attrs (>=19.2)", "hypothesis (>=3.56)", "mock", "pygments
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "6b4efbac0484dec57ed5cfd5cac905eb8f305af04dcf91250b0b04c71360cba7"
+content-hash = "de8f1c54899ae63a07dd9abedd425007d6c7a6bec80e817f30cdd63357772b03"
