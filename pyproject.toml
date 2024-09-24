@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pymembercli"
-version = "0.4.1"
+version = "0.4.2"
 description = ""
 authors = ["lawnchairmeku <mekumotoki@gmail.com>"]
 readme = "README.md"
