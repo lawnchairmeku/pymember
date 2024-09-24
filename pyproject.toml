@@ -13,7 +13,10 @@ pympmyansi = "^0.2.0"
 [tool.poetry.scripts]
 pymember = "pymembercli.pymember:main"
 
-[tool.poetry.group.test.dependencies]
+[tool.poetry.group.tests]
+optional = true
+
+[tool.poetry.group.tests.dependencies]
 pytest = "^8.3.3"
 
 [build-system]
