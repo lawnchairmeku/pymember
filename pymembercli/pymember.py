@@ -66,8 +66,7 @@ def make_parser() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def handle_args(tasks, args) -> list:
-
+def handle_args(tasks: list[TaskItem], args: argparse.Namespace) -> list:
     match args.command:
         case 'ls':
             cmds.list_tasks(args.lstype, tasks)
