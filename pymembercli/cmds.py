@@ -40,9 +40,8 @@ def add_task(name: str, tasks: list, desc: str = ''):
 def delete_task_by_id(taskid, tasks: list) -> list:
     newlist = []
     for t in tasks:
-        if t.id != taskid:
-            if t.id > taskid:
-                t.id -= 1
+        if t.id != taskid and t.id > taskid:
+            t.id -= 1
             newlist.append(t)
         else:
             print(pymp("deleted", 'underline'), t)
