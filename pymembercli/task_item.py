@@ -27,6 +27,3 @@ class TaskItem:
             newstatus = pymp(newstatus, 'fg_green')
         return f"{str(self.id)}. {newname} | {newdesc}\n" + \
             f"{newstatus}   added: {newdate}"
-        reprstr = str(self.id) + ". " + newname + " |  " + newdesc + \
-            "\n" + newstatus + "  added: " + newdate
-        return reprstr
