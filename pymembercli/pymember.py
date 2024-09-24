@@ -49,7 +49,7 @@ def make_parser() -> argparse.Namespace:
         'lstype', type=str, choices=['all', 'todo', 'doing', 'done'],
         default='all', nargs='?')
 
-    add = subparsers.add_parser('add', help='add a task to the list')
+    add = subparsers.add_parser('new', help='add a new task to the list')
     add.add_argument('taskname', type=str, help='name of task')
     add.add_argument('-d', '--desc', type=str, help='set a description')
 
@@ -74,7 +74,7 @@ def handle_args(tasks, args) -> list:
     if args.command == 'ls':
         cmds.list_tasks(args.lstype, tasks)
 
-    elif args.command == 'add':
+    elif args.command == 'new':
         if args.desc is not None:
             cmds.add_task(name=args.taskname, desc=args.desc, tasks=tasks)
         else:
