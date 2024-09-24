@@ -15,7 +15,8 @@ def list_tasks(listarg, tasks):
         for t in tasks:
             if t.status == listarg:
                 print(t)
-                match = True
+                if not match:
+                    match = True
         if not match:
             print(f'nothing in {listarg}!')
 
