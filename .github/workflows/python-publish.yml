@@ -39,6 +39,9 @@ jobs:
         python-version: 3.12.6
         poetry-version: 1.8.3
 
+    - name: install pytest
+      run: poetry install --with tests
+
     - name: Run tests
       run: poetry run pytest
 
