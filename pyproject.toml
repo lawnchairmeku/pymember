@@ -8,7 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.12"
 platformdirs = "^4.3.6"
-pympmyansi = "^0.1.0"
+pympmyansi = "^0.2.0"
 
 [tool.poetry.scripts]
 pymember = "pymembercli.pymember:main"
