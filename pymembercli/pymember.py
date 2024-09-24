@@ -26,9 +26,11 @@ def load_file(path) -> list:
     except FileExistsError:
         with open(path+'/tasks.json') as file:
             data = json.load(file)
+            newid = 0
             for d in data:
-                t = TaskItem(id=d['id'], name=d['name'], desc=d['desc'],
+                t = TaskItem(id=newid, name=d['name'], desc=d['desc'],
                              status=d['status'], start_date=d['start_date'])
+                newid += 1
                 tasks.append(t)
     return tasks
 
