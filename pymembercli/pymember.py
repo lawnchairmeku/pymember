@@ -86,8 +86,8 @@ def handle_args(tasks, args) -> list:
 
     elif args.command == 'del':
         if args.taskids is not None:
-            tasks = cmds.delete_task_by_id(args.taskids, tasks=tasks)
+            tasks = cmds.del_task_by_id(args.taskids, tasks=tasks)
         if args.taskgrp is not None:
-            tasks = cmds.delete_task_by_grp(args.taskgrp, tasks=tasks)
+            tasks = cmds.del_task_by_grp(args.taskgrp, tasks=tasks)
 
     return tasks
