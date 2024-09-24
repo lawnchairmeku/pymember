@@ -13,7 +13,7 @@ or, download from source and run `pip install .`
 
 `pymember set [taskid] [todo/doing/done]`
 
-`pymember del -id [taskid]`
+`pymember del -id [taskid ...]`
 
 `pymember del -grp [all/todo/doing/done]`
 
