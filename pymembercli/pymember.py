@@ -39,10 +39,6 @@ def make_parser() -> argparse.Namespace:
         description="A tool for todo-list keeping and helpful reminders.",
         prog="pymember")
 
-    # TODO implement this
-    # parser.add_argument('-dbg', '--debug',
-    # action='store_true', help='print debug info')
-
     subparsers = parser.add_subparsers(dest='command')
 
     ls = subparsers.add_parser('ls', help='list tasks')
