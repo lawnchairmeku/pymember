@@ -81,13 +81,13 @@ def handle_args(tasks, args) -> list:
             cmds.add_task(name=args.taskname, tasks=tasks)
 
     elif args.command == 'set':
-        cmds.set_mark(taskids=args.taskids,
-                      mark=args.status, tasks=tasks)
+        cmds.set_task(taskids=args.taskids,
+                      group=args.status, tasks=tasks)
 
     elif args.command == 'del':
         if args.taskids is not None:
-            tasks = cmds.delete_task_by_id(args.taskids, tasks=tasks)
+            tasks = cmds.del_task_by_id(args.taskids, tasks=tasks)
         if args.taskgrp is not None:
-            tasks = cmds.delete_task_by_grp(args.taskgrp, tasks=tasks)
+            tasks = cmds.del_task_by_grp(args.taskgrp, tasks=tasks)
 
     return tasks
