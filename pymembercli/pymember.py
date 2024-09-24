@@ -8,8 +8,8 @@ import json
 
 def main():
     path = user_data_dir("pymembercli", "mekumotoki")
-    tasks = load_file(path)
     args = make_parser()
+    tasks = load_file(path)
     tasks = handle_args(tasks, args)
     # save before exit
     with open(path+'/tasks.json', 'w') as file:
@@ -38,9 +38,10 @@ def make_parser() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="A tool for todo-list keeping and helpful reminders.",
         prog="pymember")
+    
     # TODO implement this
-    parser.add_argument('-dbg', '--debug',
-                        action='store_true', help='print debug info')
+    # parser.add_argument('-dbg', '--debug',
+    # action='store_true', help='print debug info')
 
     subparsers = parser.add_subparsers(dest='command')
 
