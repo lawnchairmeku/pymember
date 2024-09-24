@@ -67,23 +67,21 @@ def make_parser() -> argparse.Namespace:
 
 
 def handle_args(tasks, args) -> list:
-    if args.command == 'ls':
-        cmds.list_tasks(args.lstype, tasks)
 
-    elif args.command == 'new':
-        if args.desc is not None:
-            cmds.add_task(name=args.taskname, desc=args.desc, tasks=tasks)
-        else:
-            cmds.add_task(name=args.taskname, tasks=tasks)
-
-    elif args.command == 'set':
-        cmds.set_task(taskids=args.taskids,
-                      group=args.status, tasks=tasks)
-
-    elif args.command == 'del':
-        if args.taskids is not None:
-            tasks = cmds.del_task_by_id(args.taskids, tasks=tasks)
-        if args.taskgrp is not None:
-            tasks = cmds.del_task_by_grp(args.taskgrp, tasks=tasks)
+    match args.command:
+        case 'ls':
+            cmds.list_tasks(args.lstype, tasks)
+        case 'new':
+            if args.desc is not None:
+                cmds.add_task(name=args.taskname, desc=args.desc, tasks=tasks)
+            else:
+                cmds.add_task(name=args.taskname, tasks=tasks)
+        case 'set':
+            cmds.set_task(taskids=args.taskids, group=args.status, tasks=tasks)
+        case 'del':
+            if args.taskids is not None:
+                tasks = cmds.del_task_by_id(args.taskids, tasks=tasks)
+            if args.taskgrp is not None:
+                tasks = cmds.del_task_by_grp(args.taskgrp, tasks=tasks)
 
     return tasks
