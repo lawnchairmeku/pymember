@@ -34,7 +34,7 @@ def add_task(name: str, tasks: list, desc: str = ''):
     print("added", t)
 
 
-def delete_task_by_id(taskids, tasks: list) -> list:
+def del_task_by_id(taskids, tasks: list) -> list:
     newlist = []
     newid = 0
     for t in tasks:
@@ -47,7 +47,7 @@ def delete_task_by_id(taskids, tasks: list) -> list:
     return newlist
 
 
-def delete_task_by_grp(taskset, tasks: list) -> list:
+def del_task_by_grp(taskset, tasks: list) -> list:
     newlist = []
     if taskset == 'all':
         pass
