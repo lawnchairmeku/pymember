@@ -54,13 +54,13 @@ def make_parser() -> argparse.Namespace:
     add.add_argument('taskname', type=str, help='name of task')
     add.add_argument('-d', '--desc', type=str, help='set a description')
 
-    set_state = subparsers.add_parser('set', help='set the status of a task')
+    set_state = subparsers.add_parser('set', help='set the status of task(s)')
     set_state.add_argument('taskids', type=int,
                            nargs="+", help='taskid(s) to set')
     set_state.add_argument('status', type=str, choices=[
                            'todo', 'doing', 'done'])
 
-    del_task = subparsers.add_parser('del', help='delete a task')
+    del_task = subparsers.add_parser('del', help='delete task(s)')
     del_task.add_argument('-id', dest='taskids', type=int, nargs="+",
                           help='taskid(s) to delete')
     del_task.add_argument('-grp', dest='taskgrp', type=str,
