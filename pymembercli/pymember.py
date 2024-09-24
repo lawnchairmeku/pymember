@@ -8,8 +8,8 @@ import json
 
 def main():
     path = user_data_dir("pymembercli", "mekumotoki")
-    tasks = load_file(path)
     args = make_parser()
+    tasks = load_file(path)
     tasks = handle_args(tasks, args)
     # save before exit
     with open(path+'/tasks.json', 'w') as file:
@@ -38,9 +38,10 @@ def make_parser() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="A tool for todo-list keeping and helpful reminders.",
         prog="pymember")
+
     # TODO implement this
-    parser.add_argument('-dbg', '--debug',
-                        action='store_true', help='print debug info')
+    # parser.add_argument('-dbg', '--debug',
+    # action='store_true', help='print debug info')
 
     subparsers = parser.add_subparsers(dest='command')
 
@@ -54,7 +55,8 @@ def make_parser() -> argparse.Namespace:
     add.add_argument('-d', '--desc', type=str, help='set a description')
 
     set_state = subparsers.add_parser('set', help='set the status of a task')
-    set_state.add_argument('taskid', type=int, help='taskid to set')
+    set_state.add_argument('taskids', type=int,
+                           nargs="+", help='taskid(s) to set')
     set_state.add_argument('status', type=str, choices=[
                            'todo', 'doing', 'done'])
 
@@ -79,7 +81,7 @@ def handle_args(tasks, args) -> list:
             cmds.add_task(name=args.taskname, tasks=tasks)
 
     elif args.command == 'set':
-        cmds.set_mark(taskid=args.taskid,
+        cmds.set_mark(taskids=args.taskids,
                       mark=args.status, tasks=tasks)
 
     elif args.command == 'del':

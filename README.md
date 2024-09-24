@@ -11,7 +11,7 @@ or, download from source and run `pip install .`
 
 `pymember new [taskname] -d [desc]`
 
-`pymember set [taskid] [todo/doing/done]`
+`pymember set [taskid ...] [todo/doing/done]`
 
 `pymember del -id [taskid ...]`
 
