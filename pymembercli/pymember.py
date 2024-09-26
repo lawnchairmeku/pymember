@@ -16,6 +16,7 @@ def main():
         json.dump(tasks, file, indent=4, default=vars)
 
 
+# implement groups as a dict with names with a list of tasks
 def load_file(path) -> list:
     """Loads the tasks.json file and returns it as an object."""
     tasks = []
@@ -46,6 +47,8 @@ def make_parser() -> argparse.Namespace:
         'lstype', type=str, choices=['all', 'todo', 'doing', 'done'],
         default='all', nargs='?')
 
+    # TODO tree
+
     add = subparsers.add_parser('new', help='add a new task to the list')
     add.add_argument('taskname', type=str, help='name of task')
     add.add_argument('-d', '--desc', type=str, help='set a description')
@@ -70,6 +73,8 @@ def handle_args(tasks: list[TaskItem], args: argparse.Namespace) -> list:
     match args.command:
         case 'ls':
             cmds.list_tasks(args.lstype, tasks)
+        case 'tree':
+            pass
         case 'new':
             if args.desc is not None:
                 cmds.add_task(name=args.taskname, desc=args.desc, tasks=tasks)

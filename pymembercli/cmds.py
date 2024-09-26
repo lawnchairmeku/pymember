@@ -3,7 +3,7 @@ from datetime import datetime
 from pympmyansi import pymp
 
 
-# TODO minimal output mode
+# TODO minimal output mode (just names)
 # TODO counts
 def list_tasks(listarg: str, tasks: list[TaskItem]) -> None:
     if len(tasks) == 0:
@@ -19,6 +19,15 @@ def list_tasks(listarg: str, tasks: list[TaskItem]) -> None:
                 print(t)
         else:
             print(f'nothing in {listarg}s!')
+
+
+# group1
+#   task (colored by status)
+#   task (colored by status)
+# group2
+# ...etc
+def print_task_tree():
+    pass
 
 
 def add_task(name: str, tasks: list, desc: str = '') -> None:
