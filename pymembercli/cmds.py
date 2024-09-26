@@ -3,6 +3,11 @@ from datetime import datetime
 from pympmyansi import pymp
 
 
+def print_all(tasks: list[TaskItem]) -> None:
+    for t in tasks:
+        print(t)
+
+
 def list_tasks(listarg: str, tasks: list[TaskItem], just_names: bool) -> None:
     if just_names:
         for t in tasks:
@@ -12,13 +17,11 @@ def list_tasks(listarg: str, tasks: list[TaskItem], just_names: bool) -> None:
         print('You have no todos!')
         return
     if listarg == 'all':
-        for t in tasks:
-            print(t)
+        print_all(tasks)
     else:
         tolist = [t for t in tasks if t.status == listarg]
         if tolist:
-            for t in tolist:
-                print(t)
+            print_all(tolist)
         else:
             print(f'nothing in {listarg}s!')
 
