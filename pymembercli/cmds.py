@@ -3,6 +3,8 @@ from datetime import datetime
 from pympmyansi import pymp
 
 
+# TODO minimal output mode
+# TODO counts
 def list_tasks(listarg: str, tasks: list[TaskItem]) -> None:
     if len(tasks) == 0:
         print('You have no todos!')
@@ -57,3 +59,5 @@ def set_task(taskids: list[int], group: str, tasks: list[TaskItem]) -> None:
 
 
 # TODO let you update tasks
+def update_task(taskids: list[int], ):
+    pass
