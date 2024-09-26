@@ -3,22 +3,35 @@ from datetime import datetime
 from pympmyansi import pymp
 
 
-# TODO minimal output mode (just names)
-# TODO counts
-def list_tasks(listarg: str, tasks: list[TaskItem]) -> None:
+def print_all(tasks: list[TaskItem]) -> None:
+    for t in tasks:
+        print(t)
+
+
+def list_tasks(listarg: str, tasks: list[TaskItem], just_names: bool) -> None:
+    if just_names:
+        for t in tasks:
+            print(t.name)
+        return
     if len(tasks) == 0:
         print('You have no todos!')
         return
     if listarg == 'all':
-        for t in tasks:
-            print(t)
+        print_all(tasks)
     else:
         tolist = [t for t in tasks if t.status == listarg]
         if tolist:
-            for t in tolist:
-                print(t)
+            print_all(tolist)
         else:
             print(f'nothing in {listarg}s!')
+
+
+def count_tasks(listarg: str, tasks: list[TaskItem]) -> None:
+    if listarg == 'all':
+        print(f"you have {len(tasks)} total tasks")
+    else:
+        tcount = len([t for t in tasks if t.status == listarg])
+        print(f"you have {tcount} {listarg}s")
 
 
 # group1
@@ -52,7 +65,7 @@ def del_task_by_grp(taskset: str, tasks: list[TaskItem]) -> list:
     return newlist
 
 
-def set_task(taskids: list[int], group: str, tasks: list[TaskItem]) -> None:
+def set_task(taskids: list[int], tasks: list[TaskItem], group: str) -> None:
     color = ''
     match group:
         case 'todo':

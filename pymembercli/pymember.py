@@ -43,9 +43,14 @@ def make_parser() -> argparse.Namespace:
     subparsers = parser.add_subparsers(dest='command')
 
     ls = subparsers.add_parser('ls', help='list tasks')
-    ls.add_argument(
-        'lstype', type=str, choices=['all', 'todo', 'doing', 'done'],
-        default='all', nargs='?')
+    ls.add_argument('lstype', type=str, default='all', nargs='?',
+                    choices=['all', 'todo', 'doing', 'done'])
+    ls.add_argument('-m', '--min', action="store_true",
+                    help="print raw task names")
+
+    count = subparsers.add_parser('count', help='count tasks')
+    count.add_argument('taskgroup', type=str, default='all', nargs='?',
+                       choices=['all', 'todo', 'doing', 'done'])
 
     # TODO tree
 
@@ -62,7 +67,7 @@ def make_parser() -> argparse.Namespace:
     del_task = subparsers.add_parser('del', help='delete task(s)')
     del_task.add_argument('-id', dest='taskids', type=int, nargs="+",
                           help='taskid(s) to delete')
-    del_task.add_argument('-grp', dest='taskgrp', type=str,
+    del_task.add_argument('-grp', dest='taskgroup', type=str,
                           choices=['all', 'todo', 'doing', 'done'],
                           help='taskgrp to delete')
 
@@ -72,20 +77,22 @@ def make_parser() -> argparse.Namespace:
 def handle_args(tasks: list[TaskItem], args: argparse.Namespace) -> list:
     match args.command:
         case 'ls':
-            cmds.list_tasks(args.lstype, tasks)
+            cmds.list_tasks(args.lstype, tasks, args.min)
+        case 'count':
+            cmds.count_tasks(args.taskgroup, tasks)
         case 'tree':
             pass
         case 'new':
             if args.desc is not None:
-                cmds.add_task(name=args.taskname, desc=args.desc, tasks=tasks)
+                cmds.add_task(args.taskname, tasks, args.desc)
             else:
-                cmds.add_task(name=args.taskname, tasks=tasks)
+                cmds.add_task(args.taskname, tasks)
         case 'set':
-            cmds.set_task(taskids=args.taskids, group=args.status, tasks=tasks)
+            cmds.set_task(args.taskids, tasks, args.status)
         case 'del':
             if args.taskids is not None:
-                tasks = cmds.del_task_by_id(args.taskids, tasks=tasks)
+                tasks = cmds.del_task_by_id(args.taskids, tasks)
             if args.taskgrp is not None:
-                tasks = cmds.del_task_by_grp(args.taskgrp, tasks=tasks)
+                tasks = cmds.del_task_by_grp(args.taskgroup, tasks)
 
     return tasks
