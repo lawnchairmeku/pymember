@@ -4,7 +4,8 @@ from pathlib import Path
 
 import cmds
 from platformdirs import user_data_dir
-from task_item import TaskItem
+
+from pymembercli.task_item import TaskItem
 
 
 def main():

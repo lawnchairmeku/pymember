@@ -1,7 +1,8 @@
 from datetime import datetime
 
 from pympmyansi import pymp
-from task_item import TaskItem
+
+from pymembercli.task_item import TaskItem
 
 
 def print_all(tasks: list[TaskItem]) -> None:
@@ -48,7 +49,7 @@ def add_task(name: str, tasks: list, desc: str = "") -> None:
     date = datetime.now()
     newdate = str(date.month) + "/" + str(date.day) + "/" + str(date.year)
     # id is irrelevant now since its updated on app start
-    id = len(tasks) + 1
+    id = len(tasks)
     t = TaskItem(id=id, name=name, desc=desc, status="todo", start_date=newdate)
     tasks.append(t)
     print("added", t)
