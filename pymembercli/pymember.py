@@ -2,9 +2,9 @@ import argparse
 import json
 from pathlib import Path
 
-import cmds
 from platformdirs import user_data_dir
 
+from pymembercli import cmds
 from pymembercli.task_item import TaskItem
 
 
